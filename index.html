@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fauzan Nurzaman - Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #7b61ff;
+            --primary-light: #f4f0ff;
+            --dark: #0d0c22;
+            --text-muted: #626262;
+            --bg-color: #fcfcfc;
+            --card-bg: #ffffff;
+            --border-color: #eef1f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 32px 0;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-talk {
+            padding: 10px 26px;
+            background-color: transparent;
+            border: 1.5px solid var(--border-color);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-talk:hover {
+            background-color: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 40px;
+            padding: 40px 0 60px 0;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--dark);
+            letter-spacing: -0.5px;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            padding: 14px 32px;
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 24px rgba(123, 97, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(123, 97, 255, 0.3);
+        }
+
+        .see-portfolio {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 3px;
+            transition: color 0.3s ease;
+        }
+
+        .see-portfolio:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .social-links span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* Hero Image - Right */
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid #fff;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+            z-index: 2;
+        }
+
+        .hero-decor-circle {
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border: 2.5px dashed rgba(123, 97, 255, 0.35);
+            border-radius: 50%;
+            animation: spin 30s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0 40px 0;
+        }
+
+        .services h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .services-desc {
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 40px;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 30px rgba(123, 97, 255, 0.06);
+        }
+
+        .service-info {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary-light);
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .service-detail h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .service-detail p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 600px;
+        }
+
+        .arrow-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fdfdfd;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .arrow-icon {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            padding: 60px 0;
+        }
+
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+        }
+
+        .portfolio-header h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        .btn-view-all {
+            padding: 8px 20px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border: none;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-view-all:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .portfolio-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+            background: #fff;
+            transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(123, 97, 255, 0.5);
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .portfolio-info {
+            padding: 20px;
+        }
+
+        .portfolio-info h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .portfolio-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 40px;
+            background: linear-gradient(180deg, #faf9ff 0%, #ffffff 100%);
+            border-radius: 40px;
+            margin-top: 40px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 32px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 35px;
+        }
+
+        /* Call To Action (Diperbaiki & Dirapikan) */
+        .cta-container {
+            background: var(--dark);
+            color: #fff;
+            padding: 28px 36px;
+            border-radius: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .cta-text {
+            max-width: 70%;
+        }
+
+        .cta-text h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .cta-text p {
+            color: #a1a1aa;
+            font-size: 0.85rem;
+            margin: 0 !important;
+            line-height: 1.5;
+        }
+
+        .btn-cta {
+            padding: 12px 28px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(123, 97, 255, 0.2);
+            white-space: nowrap;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            background: #624be3;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+            .hero-text h1 {
+                font-size: 2.6rem;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .about-img {
+                margin: 0 auto;
+            }
+            .cta-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .cta-text {
+                max-width: 100%;
+            }
+            .btn-cta {
+                width: 100%;
+            }
+            .portfolio-header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-image {
+                width: 260px;
+                height: 260px;
+            }
+            .hero-decor-circle {
+                width: 320px;
+                height: 320px;
+            }
+            .service-card {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            .service-info {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .arrow-icon {
+                display: none;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">Fauzan Nurzaman <span>Personal</span></div>
+            <ul class="nav-links">
+                <li><a href="#services">Service</a></li>
+                <li><a href="#portfolio">Portofolio</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <button class="btn-talk" onclick="contactMe()">
+                <span>Lets Talk</span> <i class="fa-regular fa-paper-plane"></i>
+            </button>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Hello Welcome <br> I'm Fauzan Nurzaman <br><span>Junior Web Developer <br> Data Analyst</span></h1>
+                <p>Fresh graduate in Software Engineering with an interest in web development and data analysis. I enjoy building simple websites and working with data, and I am ready to grow in a professional environment.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#about" class="btn-primary" onclick="hireMe()">Hire Me</a>
+                    <a href="#portfolio" class="see-portfolio">See Portofolio</a>
+                </div>
+
+                <div class="social-links">
+                    <span>Follow Me :</span>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/najuapnzrnm_"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/+6282127640078"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image-wrapper">
+                <div class="hero-decor-circle"></div>
+                <img src="img/fauzan.png" alt="Fauzan Nurzaman" class="hero-image">
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <h2>What can I do</h2>
+            <p class="services-desc">The technical skills I developed through school projects, internships, and self-learning in web development and data analysis.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <div class="service-detail">
+                            <h3>Frontend Development</h3>
+                            <p>Build responsive and user-friendly websites using HTML, CSS, and Bootstrap.</p>
+                        </div>
+                    </div>
+                    <div class="arrow-icon">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <div class="service-detail">
+                            <h3>Web Development</h3>
+                            <p>Develop simple web applications and implement clean, structured code for functional websites.</p>
+                        </div>
+                    </div>
+                    <div class="arrow-icon">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <div class="service-detail">
+                            <h3>Database Management</h3>
+                            <p>Manage and organize data using MySQL, including creating tables, queries, and basic database operations.</p>
+                        </div>
+                    </div>
+                    <div class="arrow-icon">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <div class="service-detail">
+                            <h3>Data Analysis</h3>
+                            <p>Process and analyze data using Microsoft Excel to generate simple reports and insights.</p>
+                        </div>
+                    </div>
+                    <div class="arrow-icon">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio-section" id="portfolio">
+            <div class="portfolio-header">
+                <h2>Portofolio</h2>
+                <a href="#" class="btn-view-all">View All <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <img src="img/desktop.png" alt="desktop">
+                    <div class="portfolio-info">
+                        <h3>Computer Maintenance App (Desktop)</h3>
+                        <p>Desktop-based application for managing computer maintenance data, including service records and reporting. Built using C# with MySQL database.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <img src="img/perpus.png" alt="perpus">
+                    <div class="portfolio-info">
+                        <h3>Library Management System (Laravel)</h3>
+                        <p>Web-based library management system developed using Laravel and MySQL. Features include book management, borrowing transactions, and user data handling.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <img src="img/lelang.png" alt="lelang">
+                    <div class="portfolio-info">
+                        <h3>Auction Web App (Laravel)</h3>
+                        <p>Auction system website using Laravel and MySQL with features for bidding and item management.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" id="about">
+            <div class="about-content">
+                <img src="img/fauzan.png" alt="Fauzan Nurzaman" class="about-img">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>Fresh graduate in Software Engineering from SMK Teknologi Industri Pembangunan Cimahi. I have experience developing web applications using Laravel and MySQL, as well as a desktop application. Currently seeking an opportunity as a Junior Web Developer or Data Analyst.</p>
+                    
+                    <div class="cta-container">
+                        <div class="cta-text">
+                            <h3>Ready to build your next project?</h3>
+                            <p>I’m a fresh graduate eager to bring fresh perspectives, modern design, and robust development skills to your team.</p>
+                        </div>
+                        <a href="mailto:email@example.com" class="btn-cta" onclick="hireMe()">Hire Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-logo">Fauzan Nurzaman</div>
+            <div>Copyright © 2026. All Rights Reserved.</div>
+        </footer>
+    </div>
+
+    <script>
+        function hireMe() {
+            alert("Terima kasih atas minat Anda! Mari berkolaborasi dalam proyek luar biasa lainnya.");
+        }
+
+        function contactMe() {
+            alert("Silakan hubungi saya melalui email atau tautan media sosial yang tersedia di bawah.");
+        }
+    </script>
+</body>
+</html>
